@@ -3,7 +3,7 @@
 
 import { defineConfig } from '#q-app/wrappers'
 
-export default defineConfig((/* ctx */) => {
+export default defineConfig(( ctx ) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -37,7 +37,15 @@ export default defineConfig((/* ctx */) => {
         node: 'node20',
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history' 
+           env: {
+       SERVER_URL: ctx.dev ? 'http://localhost:3000' : 'http://localhost:3000',
+       CREATOR_NAME: 'Khamari pierre louis',
+       CREATOR_EMAIL: 'pierrelouiskhamsri56@gmail.com',
+       LINKEDIN: 'https://www.linkedin.com'
+     },
+     distDir: '../server/public',
+
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -69,8 +77,13 @@ export default defineConfig((/* ctx */) => {
         ],
       ],
     },
+       htmlVariables: {
+     productName: 'BAHS Student Job Survey App',
+     productDescription: 'The Bronx Aerospace High School Student Survey App collects job preferences from high school students.'
+   },  
 
-    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
+
+    // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver  
     devServer: {
       // https: true,
       open: true, // opens browser window automatically

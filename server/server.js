@@ -14,7 +14,7 @@ if (process.env.NODE_ENV==='PROD'){
   app.use(express.static(__dirname + '/public'));
   app.get('/', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
-  });
+  }); 
 }
 
 // all else goes to 'page not found'
